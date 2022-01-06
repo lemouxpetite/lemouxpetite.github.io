@@ -1,59 +1,126 @@
-![logo](logo.png)
+# BlackDoc
 
-[![Build Status](https://travis-ci.org/Trybnetic/open-recipes.svg?branch=master)](https://travis-ci.com/Trybnetic/open-recipes)
-[![License](https://img.shields.io/github/license/Trybnetic/open-recipes.svg)](https://github.com/Trybnetic/open-recipes/blob/master/LICENSE.txt)  
+![Jekyll version](https://img.shields.io/badge/Jekyll-3.x-brightgreen.svg?style=flat-square)
 
+BlackDoc is a two-column [Jekyll](http://jekyllrb.com) theme that's ideal for websites that require a master-detail layout for viewing of content. It's based on [Poole](http://getpoole.com), the Jekyll butler, and the [Hyde](http://hyde.getpoole.com) theme.
 
+![BlackDoc screenshot](https://raw.githubusercontent.com/karloespiritu/blackdoc/master/public/images/blackdoc-screenshot.jpg)
 
-Open Recipes is a simple jekyll theme to organize and host your favorite recipes.  
+## Contents
 
-## Installation
-To install Open Recipes you have to install [jekyll](https://jekyllrb.com). After successfully installing jekyll you have to clone this repository to your computer:
+- [Features](#features)
+- [Quick Start](#quick-start)
+- [Usage](#usage)
+- [Options](#options)
+  - [Sidebar menu](#sidebar-menu)
+  - [Scrolling sidebar content](#scrolling-sidebar-content)
+  - [Themes](#themes)
+  - [Reverse layout](#reverse-layout)
+- [Development](#development)
+- [Author](#author)
+- [License](#license)
+- [Thanks](#thanks)
+
+## Features
+
+* Now compatible with Jekyll 3.x
+* Two-column layout with scrolling sidebar content
+* Ideal for websites that require  master-detail view of content
+
+## Quick Start
+
+Download the zip file or clone the BlackDoc repo.
+
+```bash
+$ git clone git@github.com:karloespiritu/BlackDoc.git mysite
+$ cd mysite
 ```
-git clone https://github.com/Trybnetic/open-recipes.git
+Make sure you have Ruby 2.2.5 or higher installed.
+
+```bash
+$ ruby --version
+ruby 2.2.5
 ```
-Then switch into the directory and start jekyll:
+
+Install bundler and install dependencies.
+
+```bash
+$ gem install bundler
+$ bundle install
 ```
-cd open-recipes
-bundle exec jekyll serve
+
+Build and run your BlackDoc site.
+
+```bash
+$ jekyll serve
 ```
-The last command starts a webserver on your local machine. Now you should have a copy of the site running at `http://127.0.0.1:4000/open-recipes/`. Open this url with your webbrowser and explore the site.  
-By changing some of the files (except of the `config.yml`) the changes will be displayed immediately.
 
 ## Usage
-If you want to add or change recipes you have to navigate to the `_posts` folder. Here you can create one markdown file for each recipe.
-If you want to create a new recipe the easiest way is to copy an existing one and change it to your favor.
 
-## Recipe structure
-The idea is to create one markdown file per recipe inside the `_posts` folder. A typical file will look like this:
+BlackDoc is a theme built on top of [Poole](https://github.com/poole/poole), which provides a fully furnished Jekyll setup—just download and start the Jekyll server. See [the Poole usage guidelines](https://github.com/poole/poole#usage) for how to install and use Jekyll.
+
+
+## Options
+
+BlackDoc includes some customizable options, typically applied via classes on the `<body>` element.
+
+
+### Sidebar menu
+
+Create a list of nav links in the sidebar by assigning each Jekyll page the correct layout in the page's [front-matter](http://jekyllrb.com/docs/frontmatter/).
+
 ```
 ---
-layout: recipe
-title: Super Awesome Recipe
-persons: 4
-image: superawesomeimage.jpg
+layout: page
+title: About
 ---
-
-<!-- ingredients go into the table below -->
-
-| 1 tbsp. | Foo   |
-| 200 g   | Bar   |
-| 1 pinch | lorem ipsum |
-| 2       | eggs |
-
-<!-- ad -->
-<!-- do not delete the line above this one -->
-
-
-<!-- preparation method/steps go below here -->
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 ```
-The second line of each recipe specifies the layout (in our case it's always `recipe`). In the next line beginning with `title: `, you can specify the title the recipe should have. The next line states the number of persons this recipe serves.  
-If you want to show an image alongside your recipe, copy the image to `assets/images/` and put the filename in line 5 after the `image: ` field.
-*Images in landscape format with a width of less than 1000px are recommended.*
 
-The ingredients can be put in as a standard markdown table. The preparation steps can be put as free text or as an ordered or unordered list - this is entirely up to you :)
+**Why require a specific layout?** Jekyll will return *all* pages, including the `atom.xml`, and with an alphabetical sort order. To ensure the first link is *Home*, we exclude the `index.html` page from this list by specifying the `page` layout.
 
-**happy cooking and enjoy your meal!**
+
+### Scrolling sidebar content
+
+By default, BlackDoc includes a scrolling sidebar that will display your markdown files in alphabetical order.
+
+### Themes
+
+BlackDoc ships with eight optional themes based on the [base16 color scheme](https://github.com/chriskempson/base16). Apply a theme to change the color scheme (mostly applies to sidebar and links).
+
+To use a theme, add anyone of the available theme classes to the `<body>` element in the `default.html` layout, like so:
+
+```html
+<body class="theme-base-08">
+  ...
+</body>
+```
+
+To create your own theme, look to the Themes section of [included CSS file](https://github.com/karloespiritu/blackdoc/blob/master/public/css/blackdoc.css). Copy any existing theme (they're only a few lines of CSS), rename it, and change the provided colors.
+
+### Reverse layout
+
+![BlackDoc reverse screenshot](https://raw.githubusercontent.com/karloespiritu/BlackDoc/master/public/images/reverse-screenshot.png)
+
+BlackDoc's page orientation can be reversed with a single class.
+
+```html
+<body class="layout-reverse">
+  ...
+</body>
+```
+
+## Author
+
+**Karlo Espiritu**
+- <https://github.com/karloespiritu>
+- <https://twitter.com/karloespiritu>
+
+## License
+
+Open sourced under the [MIT license](LICENSE.md).
+
+\m/
+
+## Thanks
+
+Thanks to [@mdo](https://twitter.com/mdo) for creating the awesome [Poole](http://getpoole.com) project.
